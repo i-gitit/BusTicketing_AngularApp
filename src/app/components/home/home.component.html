@@ -1,0 +1,55 @@
+<div class="container parentcontainer">
+    <div class="row justify-content-center">
+        <div class="col  d-none d-lg-block">
+            <img class="img img-fluid" src="../../../assets/planjourney.svg" alt="Journey Image">
+        </div>
+        <div class="col col-lg-6 col-md-10 col-sm-12">
+            <div class="card">
+                <h5 class="card-header">Plan Journey</h5>
+                <div class="card-body">
+                    <form [formGroup]="journeyInfo" (ngSubmit)="onSubmit()">
+                        
+                        <div *ngIf="submitted && formControl.destination.errors?.invalidJourney" class="alert alert-danger">
+                            Source and destination can not be same.
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="sourceLocation">Leaving From</label>
+                                <select class="form-control" id="sourceLocation" name="sourceLocation" formControlName="sourceLocation">
+                                    <option *ngFor='let city of sourceCities' [value]="city">{{city}}</option>
+                                </select>
+                                <div *ngIf="formControl.sourceLocation.invalid && (formControl.sourceLocation.dirty || formControl.sourceLocation.touched || submitted)" class="text-danger">
+                                    <small *ngIf="formControl.sourceLocation.errors?.required">Source Location is required</small>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group col">
+                                <label for="destination">Going To</label>
+                                <select class="form-control" id="destination" name="destination" formControlName="destination">
+                                    <option *ngFor='let city of destinationCities' [value]='city'>{{city}}</option>
+                                </select>
+                                <div *ngIf="formControl.destination.invalid && (formControl.destination.dirty || formControl.destination.touched || submitted)" class="text-danger">
+                                    <small *ngIf="formControl.destination.errors?.required">Destination Location is required</small>
+                                </div>
+                            </div>                    
+                        </div>
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-8">
+                                <label for="depatureDate">Departure Date</label>
+                                <input class="form-control" id="departureDate" name="departureDate" type="date" formControlName="departureDate">
+                                <div *ngIf="formControl.departureDate.invalid && (formControl.departureDate.dirty || formControl.departureDate.touched || submitted)" class="text-danger">
+                                    <small *ngIf="formControl.departureDate.errors?.required">Journey date is required</small>
+                                    <small *ngIf="formControl.departureDate.errors?.oldDate">Journey date is Invalid.(Do not enter old date)</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-primary">Search Buses</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

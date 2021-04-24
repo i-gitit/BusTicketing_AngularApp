@@ -1,0 +1,25 @@
+<div class="container parentcontainer">
+    <div class="row justify-content-center" *ngIf="ticket">
+        <div class="col lg-5 d-none d-lg-block">
+          <img class="img img-fluid" src="../../../assets/travelers.svg" alt="Journey Image">
+        </div>
+        <div class="col col-lg-6 col-md-8 col-sm-12" >
+            <div class="card bg-light mb-3" >
+                <div class="card-header">Journey Details</div>
+                <div class="card-body">
+                  <h5 class="card-title">{{ticket['Source']}} To  {{ticket['Destination']}}</h5>
+                  <p class="card-text">Date & Time : {{ticket['Date'] | date: 'mediumDate'}} |  {{ticket['Departure Time']}}</p>
+                  <p class="card-text">{{ticket['Bus Name']}}</p>
+                  <p class="card-text">Coach Type : {{ticket['Coach Type']}}</p>
+                  <p class="card-text">Seats No (
+                    <span *ngFor="let seat of ticket['Seat No']">
+                      {{seat}},
+                    </span>
+                    )
+                  </p>
+                </div>
+            </div>
+            <button type="button" class="btn btn-info" [routerLink]="['../../viewticket',ticket['id']]">Proceed to view Ticket</button>
+        </div>
+    </div>
+</div>

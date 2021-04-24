@@ -1,0 +1,43 @@
+
+form{
+    padding: 20px;
+    box-shadow:  3px 3px 5px 6px #ccc;
+}
+
+.total{
+    padding: 4px;
+    margin: 4px;
+}
+.seatstable{
+    min-height: 300px;
+}
+
+.seatCheckbox{
+    margin-left: 20px;
+}
+.seatCheckbox input[type="checkbox"] {
+    display: none;
+}
+ 
+.seatCheckbox span:before {
+    width: 1em;
+    height: 1em;
+    content: url('../../../assets/car-seat.svg');
+    margin-right: .3em;
+}
+ 
+.seatCheckbox input[type="checkbox"]:checked ~ span:before {
+    content: url('../../../assets/car-seat-filled.svg');
+}
+
+.seatCheckbox input[type="checkbox"]:disabled ~ span:before {
+    content: url('../../../assets/car-seat-disabled.svg');
+}
+
+.alert{
+    height: 80px;
+}
+
+.btn-block{
+    max-width: 250px;
+}

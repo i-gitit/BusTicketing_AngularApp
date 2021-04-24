@@ -1,0 +1,45 @@
+<div class="container parentcontainer">
+    <div class="row justify-content-center">
+      <ng-container *ngIf="availableBuses;else endpointsmissing">
+        <div class="col-sm-12">
+            <button class="btn btn-primary" (click)='navigateBack()'>Back</button>
+        </div>
+        <div class="col-lg-4 d-none d-lg-block">
+          <img class="img img-fluid" src="../../../assets/travelmode.svg" alt="Journey Image">
+        </div>
+        <div class="col col-lg-8 col-sm-12" *ngIf="availableBuses.length; else busesUnavailable">
+          <div class="row justify-content-center"><p class="lead">Available buses</p></div>
+          <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" *ngFor="let key of keys">{{key}}</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let bus of availableBuses">
+                  <td *ngFor="let key of keys">{{bus[key]}}</td>
+                  <td>
+                    <button type="button" [routerLink]='["/buses",bus.id]' class="btn btn-light">View Seats</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+          <ng-template #busesUnavailable>
+              <h4>
+                  Sorry! No buses are currently available running on this route.
+              </h4>
+          </ng-template>
+      </ng-container>
+      <ng-template #endpointsmissing>
+        <div class="col">
+          <div class="alert alert-warning" role="alert">
+            You have not selected your journey endpoints.
+            Go to home page to plan your journey and find buses.
+          </div>
+          <a class="btn btn-primary" routerLink="" role="button">Plan journey</a>
+        </div>
+    </ng-template>
+    </div>
+</div>
