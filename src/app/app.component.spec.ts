@@ -1,35 +1,52 @@
-import { TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { TestBed, ComponentFixture, } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { By } from '@angular/platform-browser';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent, HeaderStub, FooterStub
       ],
     }).compileComponents();
   });
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
   it(`should have as title 'mytrip-busTicketing'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('mytrip-busTicketing');
+    expect(component.title).toEqual('mytrip-busTicketing');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('mytrip-busTicketing app is running!');
+  it('should render header component',()=>{
+    expect(fixture.debugElement.query(By.css('app-header'))).toBeTruthy();
   });
+
+  it('should render footer component',()=>{
+    expect(fixture.debugElement.query(By.css('app-footer'))).toBeTruthy();
+  });
+
 });
+
+@Component({template:'',selector:'app-header'})
+class FooterStub{
+}
+
+@Component({template:'',selector:'app-footer'})
+class HeaderStub{
+}

@@ -50,7 +50,6 @@ export class HomeComponent implements OnInit {
     return (formGroup: FormGroup) => {
       const source = formGroup.controls[src];
       const destination = formGroup.controls[dst];
-
       if (destination.value!="" && source.value === destination.value){  
           destination.setErrors(
             {invalidJourney: true}
