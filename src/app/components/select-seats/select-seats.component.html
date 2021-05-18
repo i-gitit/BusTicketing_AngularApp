@@ -8,9 +8,9 @@
                 <hr>
                 <ng-container formArrayName="seats">
                     <ng-container *ngFor="let _ of seats.controls; index as i">
-                    <label class="seatCheckbox" >
+                    <label class="seatCheckbox" [id]="i" >
                     <input 
-                        [formControlName]="i" type="checkbox"
+                        [formControlName]="i" type="checkbox" [id]="i"
                         [attr.disabled]="seatStatus[i] ? true : null"/>
                         <span></span>
                     </label>

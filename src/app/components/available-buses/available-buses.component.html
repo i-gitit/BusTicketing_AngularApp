@@ -20,7 +20,7 @@
                 <tr *ngFor="let bus of availableBuses">
                   <td *ngFor="let key of keys">{{bus[key]}}</td>
                   <td>
-                    <button type="button" [routerLink]='["/buses",bus.id]' class="btn btn-light">View Seats</button>
+                    <button type="button" [routerLink]='["/buses",bus.id]' class="btn btn-light viewseats">View Seats</button>
                   </td>
                 </tr>
               </tbody>

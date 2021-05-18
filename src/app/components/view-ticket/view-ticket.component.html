@@ -6,7 +6,7 @@
                 </div>
                 <div class="row route my-2 mx-1 py-2"> 
                     <div class="col">
-                        <h5>{{ticket['Source']}} {{ticket['Destination']}}</h5>
+                        <h5 class="endpoints">{{ticket['Source']}} {{ticket['Destination']}}</h5>
                     </div>
                     <div class="col">
                         <h5>{{ticket['Date'] | date: 'mediumDate'}}</h5>
@@ -15,7 +15,7 @@
                 <div class="row my-3 mx-1 passenger pt-2">
                     <div class="col-md-4 col-sm-6">
                         <h5>Passenger Details</h5>
-                        <h6>{{ticket['Passenger Details']['username']}}</h6>
+                        <h6 class="passengername">{{ticket['Passenger Details']['username']}}</h6>
                         <p>{{ticket['Passenger Details']['mobilenumber']}} <br>{{ticket['Passenger Details']['email']}}</p>
                     </div>
 
@@ -59,7 +59,7 @@
     <div class="row my-3">
         <div class="mx-auto condition">**Please bring this copy to ticket counter for collecting your ticket</div>
     </div>
-    <div class="row">
+    <div class="row my-3">
         <div class="mx-auto">
             <button class="btn btn-primary" routerLink="">Book more tickets</button>
         </div>
