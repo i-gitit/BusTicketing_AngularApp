@@ -13,3 +13,10 @@ System testing is done using [Pytest](https://docs.pytest.org/en/6.2.x/) and [Se
 
 ## Live project
 Can be seen [here](https://i-gitit.github.io/BusTicketing_AngularApp/). Hosted using Github pages.
+
+## Preview
+![Home](preview/home.png)
+![Available buses](preview/available_buses.png)
+![Seat Selection](preview/select_seats.png)
+![Passenger details](preview/passenger_details.png)
+![Ticket](preview/ticket.png)
