@@ -3,16 +3,13 @@
 </div>
 
 ## About
-This repository contains project done during Angular training.
+Ticket booking application front end made with [Angular 11](https://angular.io/) and [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/).<br>
+System testing is done using [Pytest](https://docs.pytest.org/en/6.2.x/) and [Selenium](https://selenium-python.readthedocs.io/)
 
-## Technologies
-* HTML
-* CSS
-* JS
-* Type Script
-* Angular
-* Python
-
+## Features
+- Search buses(Plan journey)
+- Select Seats
+- Generate ticket
 
 ## Live project
-Can be seen [here](https://himanshu-jain-itt.github.io/my-trip). Hosted using Github pages.
+Can be seen [here](https://i-gitit.github.io/BusTicketing_AngularApp/). Hosted using Github pages.
